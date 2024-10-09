@@ -51,7 +51,8 @@ h1 {
 }
 
 .gameBoard {
-    display: grid;
+    display: none;
+    animation: silo-fade 0.2s;
     grid-template-columns: repeat(3, 150px);
     grid-template-rows: repeat(3, 150px);
     justify-content: center;
@@ -79,8 +80,36 @@ h1 {
     cursor: pointer;
 }
 
+.resetGamebutton-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.resetGamebutton {
+    display: none;
+    font-size: 4rem;
+    border: none;
+    border-radius: 1rem;
+    animation: silo-fade 0.2s;
+}
+
 .playerTurnInfo {
     font-weight: bolder;
     font-size: 1.2rem;
+    display: none;
+    animation: silo-fade 0.2ss;
 }
 
+
+
+@keyframes silo-fade {
+    0% {
+        opacity: 0;
+        transform: translateY(-3rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

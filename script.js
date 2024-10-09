@@ -40,8 +40,9 @@ const gameFlow = (() => {
         playerOne = player(nameOne, "X");
         playerTwo = player(nameTwo, "O");
         currentPlayer = playerOne;
+        document.querySelector(".resetGamebutton").style.display = "none";
+        document.querySelector(".playerTurnInfo").style.display = "block";
         gameOver = false;
-        //DOM - textContent: current player's turn
         document.querySelector(".playerTurnInfo").textContent = `${playerOne.getName()}'s turn`;
     };
 
@@ -57,6 +58,7 @@ const gameFlow = (() => {
         gameOver = true;
         //DOM - textContent: winner or draw
         document.querySelector(".playerTurnInfo").textContent = winner ? `${winner.getName()} wins!!!` : `DRAW!!!`;
+        document.querySelector(".resetGamebutton").style.display = "block";
     }
 
     return { startGame, switchTurn, getCurrentPlayer, triggerGameOver };
@@ -104,6 +106,8 @@ document.querySelector(".startGameButton").addEventListener("click", () => {
     const nameOne = document.querySelector("#playerOne").value || "Player One";
     const nameTwo = document.querySelector("#playerTwo").value || "Player Two";
     gameFlow.startGame(nameOne, nameTwo)
+
+    document.querySelector(".gameBoard").style.display = "grid";
 });
 
 document.querySelector(".resetGamebutton").addEventListener("click", () => {
