@@ -56,7 +56,7 @@ h1 {
     grid-template-columns: repeat(3, 150px);
     grid-template-rows: repeat(3, 150px);
     justify-content: center;
-    gap: 10px;
+    gap: 1rem;
     margin: 3rem auto;
 }
 
@@ -65,7 +65,7 @@ h1 {
     height: 150px;
     background-color: lightgray;
     border-radius: 3rem;
-    border: darkcyan 3px solid;
+    border: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,7 +73,49 @@ h1 {
 
     font-size: 4rem;
     font-weight: bolder;
+    position: relative;
 }
+
+[data-index] {
+    color: rgba(180, 17, 213, 0.7)
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.cell:hover::after, .cell:hover::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    padding: 5rem;
+    background-image: conic-gradient(from var(--angle), transparent 70%, lightblue, red, lightgreen);
+    z-index: -1;
+    animation: 2s spin linear infinite;
+    border-radius: 3rem;
+}
+
+.cell::before {
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
+
 
 .playerNameInput > .startGameButton,
 .resetGamebutton {
@@ -88,10 +130,38 @@ h1 {
 
 .resetGamebutton {
     display: none;
-    font-size: 4rem;
-    border: none;
+    font-size: 5rem;
+    padding: 1rem 3rem;
     border-radius: 1rem;
     animation: silo-fade 0.2s;
+    position: absolute;
+    bottom: 15rem;
+    border: none;
+}
+
+.resetGamebutton:hover {
+    background-color: green;
+    color: white;
+}
+
+.resetGamebutton::after, .resetGamebutton::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    padding: 5rem 18.5rem;
+    background-image: conic-gradient(from var(--angle), transparent 70%, lightblue, red, lightgreen);
+    z-index: -1;
+    animation: 2s spin linear infinite;
+    border-radius: 1rem;
+}
+
+.resetGamebutton::before {
+    filter: blur(1.5rem);
+    opacity: 0.5;
 }
 
 .playerTurnInfo {
