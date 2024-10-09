@@ -5,34 +5,79 @@
 
 *, *::before, *::after {
     box-sizing: border-box;
-  }
+}
   
-  * {
-    margin: 0;
-  }
-  
-  body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-  
-  img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
-  }
-  
-  input, button, textarea, select {
-    font: inherit;
-  }
-  
-  p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-  }
-  
-  #root, #__next {
-    isolation: isolate;
-  }
+* {
+  margin: 0;
+}
 
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
   /* ------- */
 
+body {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.playerNameInput {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+h1 {
+    margin: 1rem 0;
+}
+
+.gameBoard {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+    justify-content: center;
+    gap: 10px;
+    margin: 3rem auto;
+}
+
+.cell {
+    width: 150px;
+    height: 150px;
+    background-color: lightgray;
+    border-radius: 3rem;
+    border: darkcyan 3px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.playerNameInput > .startGameButton,
+.resetGamebutton {
+    cursor: pointer;
+}
+
+.playerTurnInfo {
+    font-weight: bolder;
+    font-size: 1.2rem;
+}
 
