@@ -7,13 +7,31 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    
+    <h1>Tic Tac Toe</h1>
 
+    <div class="playerNameInput">
+        <input type="text" placeholder="enter your name" id="playerOne">
+        <input type="text" placeholder="enter your name" id="playerTwo">
+        <button type="button" class="startGameButton"></button>
+    </div>
 
+    <div class="gameBoard">
+        <div class="cell" index="0"></div>
+        <div class="cell" index="1"></div>
+        <div class="cell" index="2"></div>
+        <div class="cell" index="3"></div>
+        <div class="cell" index="4"></div>
+        <div class="cell" index="5"></div>
+        <div class="cell" index="6"></div>
+        <div class="cell" index="7"></div>
+        <div class="cell" index="8"></div>
+    </div>
 
+    <div class="gameInfo">
+        <p class="playerTurnInfo">Player One's Turn</p>
+    </div>
 
-
-
+    <button type="button" class="resetGamebutton">Reset Game</button>
 
     <script src="./script.js"></script>
 </body>
